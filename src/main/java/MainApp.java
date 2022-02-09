@@ -12,6 +12,6 @@ public class MainApp {
 
         //o método noSender retorna uma constante para identificar o ActorSystem, já que
         //a mensagem está sendo enviada direto do System e não de um outro ator
-        auroraActor.tell("Hello world with actors", ActorRef.noSender());
+        auroraActor.tell("Olá mundo de atores", ActorRef.noSender());
     }
 }
