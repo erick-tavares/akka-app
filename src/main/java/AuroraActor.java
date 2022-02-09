@@ -21,8 +21,13 @@ public class AuroraActor extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) throws Exception {
-        log.info("Mensagem recebida: " + msg);
-        //Repasa a mensagem recebida para o ator filho
-        childActor.tell(msg, getSelf());
+        if(msg instanceof HelloMessage){
+            log.info("Mensagem recebida: " + msg);
+            //Repasa a mensagem recebida para o ator filho
+            childActor.tell(msg, getSelf());
+        }else{
+            //informa o ActorSystem que este ator não processa este tipo de menssagem
+            unhandled(msg);
+        }
     }
 }

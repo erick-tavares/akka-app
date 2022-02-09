@@ -8,6 +8,10 @@ public class ChildActor extends UntypedActor {
 
     @Override
     public void onReceive(Object msg) throws Exception {
-        log.info("Mensagem do ator filho: " + msg);
+        if (msg instanceof HelloMessage) {
+            log.info("Mensagem do ator filho: " + msg);
+        } else {
+            unhandled(msg);
+        }
     }
 }
